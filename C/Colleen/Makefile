@@ -1,0 +1,22 @@
+CC=cc
+NAME=Colleen
+CFLAGS=-Wall -Wextra -Werror
+OBJ=Colleen.o
+
+all: $(NAME)
+
+$(NAME): $(OBJ)
+	$(CC) -o $@ $^ $(CFLAGS)
+
+%.o: %.c
+	$(CC) -c -o $@ $< $(CFLAGS)
+
+clean:
+	rm -rf *.o
+
+fclean: clean
+	rm -rf $(NAME)
+
+re: fclean all
+
+.PHONY: all clean fclean re
